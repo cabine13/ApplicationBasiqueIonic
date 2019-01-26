@@ -1,0 +1,12 @@
+page-lendBook {
+  .isNotLend {
+    ion-card-content, ion-card-header, ion-grid {
+      background-color: color($colors, rendu);
+    }
+  }
+  .isLend {
+    ion-card-content, ion-card-header, ion-grid {
+      background-color: color($colors, prete);
+    }
+  }
+}

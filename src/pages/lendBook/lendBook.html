@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button color="danger" clear (click)="dismissModal()"><ion-icon large color="danger" name="close"></ion-icon>&nbsp;Fermer</button>
+    </ion-buttons>
+    <ion-title>
+      {{book.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card [ngClass]="{'isLend': book.isLend, 'isNotLend': !book.isLend}">
+    <ion-card-header>{{book.title}}</ion-card-header>
+    <ion-card-content>
+      <h2>{{book.author}}</h2>
+      <p>Date de sortie : {{book.year}}</p>
+      <p>Editeur : {{book.editor}}</p>
+      <p>ISBN : {{book.isbn}}</p>
+    </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button full color="danger" [disabled]="book.isLend" (click)="onToggleLend(book)">Prêter</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button full color="secondary" [disabled]="!book.isLend" (click)="onToggleLend(book)">Rendre</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

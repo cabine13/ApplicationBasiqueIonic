@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Mes CD
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list >
+    <button
+      [ngClass] = "{'isLend': cd.isLend, 'isNotLend': !cd.isLend}"
+      ion-item
+      icon-start
+      *ngFor = "let cd of mesCd; let i = index"
+    (click)="onLoadCd(i)">
+      <ion-icon *ngIf="!cd.isLend" name="thumbs-up" [color]="cd.isLend ? 'danger' : 'secondary'"></ion-icon>
+      <ion-icon *ngIf="cd.isLend" name="thumbs-down" [color]="cd.isLend ? 'danger' : 'secondary'"></ion-icon>
+      {{cd.title}}<br>
+      {{cd.artist}}
+    </button>
+  </ion-list>
+</ion-content>

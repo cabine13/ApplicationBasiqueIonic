@@ -1,0 +1,8 @@
+page-bookList {
+  .isNotLend {
+    background-color: color($colors, rendu);
+  }
+  .isLend {
+    background-color: color($colors, prete);
+  }
+}
